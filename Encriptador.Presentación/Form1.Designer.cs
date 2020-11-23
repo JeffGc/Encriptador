@@ -60,6 +60,7 @@
             this.btnUnicode.TabIndex = 2;
             this.btnUnicode.Text = "Unicode";
             this.btnUnicode.UseVisualStyleBackColor = false;
+            this.btnUnicode.Click += new System.EventHandler(this.btnUnicode_Click);
             // 
             // btnAscii
             // 

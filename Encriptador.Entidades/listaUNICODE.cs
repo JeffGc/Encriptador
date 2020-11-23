@@ -6,25 +6,24 @@ using System.Threading.Tasks;
 
 namespace Encriptador.Entidades
 {
-    public class listaASCII
+    public class listaUNICODE
     {
-        private claseNodoAscii _inicio;
+        private claseNodoUnicode _inicio;
 
-        private claseNodoAscii _final;
+        private claseNodoUnicode _final;
 
         private int _tamano;
 
-        private List<claseNodoAscii> lista = new List<claseNodoAscii>();
+        private List<claseNodoUnicode> lista = new List<claseNodoUnicode>();
 
-        public listaASCII()
+        public listaUNICODE()
         {
         }
 
-        public listaASCII(claseNodoAscii inicio, claseNodoAscii final, int tamano)
+        public listaUNICODE(claseNodoUnicode inicio, claseNodoUnicode final)
         {
             _inicio = inicio;
             _final = final;
-            _tamano = tamano;
         }
 
         public bool esVacia()
@@ -32,10 +31,10 @@ namespace Encriptador.Entidades
             return _inicio == null;
         }
 
-        public void agregarAlFinal(claseNodoAscii nodoNuevo)
+        public void agregarAlFinal(claseNodoUnicode nodoNuevo)
         {
             // Define un nuevo nodo.
-            claseNodoAscii nodo = new claseNodoAscii();
+            claseNodoUnicode nodo = new claseNodoUnicode();
 
             // Consulta si la lista esta vacia.
             if (esVacia())
@@ -70,13 +69,13 @@ namespace Encriptador.Entidades
             _tamano++;
         }
 
-        public List<claseNodoAscii> listar()
+        public List<claseNodoUnicode> listar()
         {
             // Verifica si la lista contiene elementoa.
             if (!esVacia())
             {
                 // Crea una copia de la lista.
-                claseNodoAscii aux = _inicio;
+                claseNodoUnicode aux = _inicio;
                 // Posicion de los elementos de la lista.
                 int i = 1;
 
@@ -94,16 +93,15 @@ namespace Encriptador.Entidades
             return lista;
         }
 
-        public claseNodoAscii buscarEncriptar(char caracter)
+        public claseNodoUnicode buscarEncriptar(char caracter)
         {
-            claseNodoAscii nodoRetorno = new claseNodoAscii();
-            claseNodoAscii nodoEncontrado = new claseNodoAscii();
+            claseNodoUnicode nodoRetorno = new claseNodoUnicode();
 
-            foreach (claseNodoAscii nodo in lista)
+            foreach (claseNodoUnicode nodoUnicode in lista)
             {
-                if (nodo.Caracter.Equals(caracter))
+                if (nodoUnicode.Caracter.Equals(caracter))
                 {
-                    nodoEncontrado = nodo;
+                    claseNodoUnicode nodoEncontrado = nodoUnicode;
                     for (int i = 1; i <= (int)Math.Pow(63, 2); i++)
                     {
                         for (int j = 333; j >= 1; j--)
@@ -112,23 +110,43 @@ namespace Encriptador.Entidades
                             nodoEncontrado = nodoEncontrado.Siguiente;
                         }
                     }
-                    //return nodoRetorno;
-                break;
+                    break;
                 }
             }
             return nodoRetorno;
         }
 
-        public claseNodoAscii buscarDesencriptar(char caracter)
+        public claseNodoUnicode buscarDesencriptar(char caracter)
         {
-            claseNodoAscii nodoRetorno = new claseNodoAscii();
-            claseNodoAscii nodoEncontrado = new claseNodoAscii();
-
-            foreach (claseNodoAscii nodo in lista)
+            claseNodoUnicode nodoRetorno = new claseNodoUnicode();
+            foreach (claseNodoUnicode nodo in lista)
             {
                 if (nodo.Caracter.Equals(caracter))
                 {
-                    nodoEncontrado = nodo;
+                    claseNodoUnicode nodoEncontrado = nodo;
+                    for (int i = (int)Math.Sqrt(15752961); i >= 1; i--)
+                    {
+                        for (int j = 333; j >= 1; j--)
+                        {
+                            nodoRetorno = nodoEncontrado;
+                            nodoEncontrado = nodoEncontrado.Anterior;
+                        }
+                    }
+                    break;
+                }
+            }
+            return nodoRetorno;
+        }
+
+        public claseNodoUnicode buscarDesencriptar(string caracter)
+        {
+            
+            claseNodoUnicode nodoRetorno = new claseNodoUnicode();
+            foreach (claseNodoUnicode nodo in lista)
+            {
+                if (nodo.Valor == caracter)
+                {
+                    claseNodoUnicode nodoEncontrado = nodo;
                     for (int i = (int)Math.Sqrt(15752961); i >= 1; i--)
                     {
                         for (int j = 333; j >= 1; j--)

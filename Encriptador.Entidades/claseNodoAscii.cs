@@ -6,29 +6,29 @@ using System.Threading.Tasks;
 
 namespace Encriptador.Entidades
 {
-    public class claseNodo
+    public class claseNodoAscii
     {
         private int _valor;
         private char _caracter;
 
-        private claseNodo _siguiente;
-        private claseNodo _anterior;
+        private claseNodoAscii _siguiente;
+        private claseNodoAscii _anterior;
 
         public int Valor { get => _valor; set => _valor = value; }
         public char Caracter { get => _caracter; set => _caracter = value; }
-        public claseNodo Siguiente { get => _siguiente; set => _siguiente = value; }
-        public claseNodo Anterior { get => _anterior; set => _anterior = value; }
+        public claseNodoAscii Siguiente { get => _siguiente; set => _siguiente = value; }
+        public claseNodoAscii Anterior { get => _anterior; set => _anterior = value; }
 
-        public claseNodo()
+        public claseNodoAscii()
         {
         }
-        public claseNodo(int valor, char caracter)
+        public claseNodoAscii(int valor, char caracter)
         {
             Valor = valor;
             Caracter = caracter;
         }
 
-        public claseNodo(int valor, char caracter, claseNodo siguiente, claseNodo anterior)
+        public claseNodoAscii(int valor, char caracter, claseNodoAscii siguiente, claseNodoAscii anterior)
         {
             Valor = valor;
             Caracter = caracter;

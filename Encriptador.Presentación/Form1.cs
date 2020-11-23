@@ -39,6 +39,15 @@ namespace Encriptador.Presentación
         {
             Application.Exit();
         }
+
+        private void btnUnicode_Click(object sender, EventArgs e)
+        {
+            Unicode unicode = new Unicode();
+            unicode.Show();
+            this.Hide();
+            
+
+        }
     }
         
 }

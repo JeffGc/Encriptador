@@ -14,19 +14,17 @@ namespace Encriptador.Presentación
 {
     public partial class Ascii : Form
     {
-
         listaASCII claseLCDE = new listaASCII();
-
 
         public Ascii()
         {
             InitializeComponent();
-            for (int i =1; i <= 127; i++)
+            for (int i = 1; i <= 127; i++)
             {
-                claseLCDE.agregarAlFinal(new claseNodo(i, Convert.ToChar(i)));
+                claseLCDE.agregarAlFinal(new claseNodoAscii(i, Convert.ToChar(i)));
             }
 
-            foreach (claseNodo nodo in claseLCDE.listar())
+            foreach (claseNodoAscii nodo in claseLCDE.listar())
             {
                 Console.WriteLine(" " + nodo.Valor + " " + nodo.Caracter + "\n");
             }
@@ -46,7 +44,7 @@ namespace Encriptador.Presentación
 
                 if (codigo < 1)
                 {
-                    MessageBox.Show(palabra[i] +" No pertene ASCII");
+                    MessageBox.Show(palabra[i] + " No pertene ASCII");
                 }
                 else if (codigo <= 9)
                 {
@@ -64,16 +62,6 @@ namespace Encriptador.Presentación
 
             txtPalabra.Text = palabraEncriptada;
             txtCodigo.Text = codigoEncriptado;
-        }
-
-        private void txtPalabraEncriptar_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void chkPalabra_CheckStateChanged(object sender, EventArgs e)
@@ -110,9 +98,7 @@ namespace Encriptador.Presentación
 
         private void button3_Click(object sender, EventArgs e)
         {
-
             string palabraDesencriptada = "";
-
 
             if (chkPalabra.Checked)
             {
@@ -133,14 +119,16 @@ namespace Encriptador.Presentación
                 {
                     codigo = codigo + codigoEncriptado[i];
 
-                    if (codigo.Length >=3) 
+                    if (codigo.Length >= 3)
                     {
-                        palabraDesencriptada = palabraDesencriptada + claseLCDE.buscarDesencriptar((char) int.Parse(codigo)).Caracter;
+                        palabraDesencriptada = palabraDesencriptada + claseLCDE.buscarDesencriptar((char)int.Parse(codigo)).Caracter;
                         codigo = string.Empty;
                     }
-                    
                 }
-
+            }
+            else
+            {
+                MessageBox.Show("Opción invalida");
             }
             txtPalabraDesencriptada.Text = palabraDesencriptada;
         }

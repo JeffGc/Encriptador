@@ -42,7 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="listaASCII.cs" />
-    <Compile Include="claseNodo.cs" />
+    <Compile Include="claseNodoAscii.cs" />
+    <Compile Include="listaUNICODE.cs" />
+    <Compile Include="claseNodoUnicode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
