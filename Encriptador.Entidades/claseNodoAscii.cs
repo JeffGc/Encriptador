@@ -8,17 +8,20 @@ namespace Encriptador.Entidades
 {
     public class claseNodoAscii
     {
+        // Atributos
         private int _valor;
         private char _caracter;
 
         private claseNodoAscii _siguiente;
         private claseNodoAscii _anterior;
 
+        // Propiedades
         public int Valor { get => _valor; set => _valor = value; }
         public char Caracter { get => _caracter; set => _caracter = value; }
         public claseNodoAscii Siguiente { get => _siguiente; set => _siguiente = value; }
         public claseNodoAscii Anterior { get => _anterior; set => _anterior = value; }
 
+        // Constructores
         public claseNodoAscii()
         {
         }

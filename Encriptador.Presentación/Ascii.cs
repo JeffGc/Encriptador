@@ -107,7 +107,7 @@ namespace Encriptador.Presentación
                 {
                     palabraDesencriptada = palabraDesencriptada + claseLCDE.buscarDesencriptar(palabraEncriptada[i]).Caracter;
                 }
-                txtPalabraDesencriptada.Text = palabraDesencriptada;
+               // txtPalabraDesencriptada.Text = palabraDesencriptada;
             }
             else if (chkCodigo.Checked)
             {

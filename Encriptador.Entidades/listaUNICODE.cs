@@ -65,7 +65,6 @@ namespace Encriptador.Entidades
                 _final = nodoNuevo;
 
             }
-            // Incrementa el contador de tamaño de la lista
             _tamano++;
         }
 
@@ -139,8 +138,7 @@ namespace Encriptador.Entidades
         }
 
         public claseNodoUnicode buscarDesencriptar(string caracter)
-        {
-            
+        {          
             claseNodoUnicode nodoRetorno = new claseNodoUnicode();
             foreach (claseNodoUnicode nodo in lista)
             {
